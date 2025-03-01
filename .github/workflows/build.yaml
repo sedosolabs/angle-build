@@ -23,3 +23,5 @@ jobs:
           mkdir angle
           cd angle
           fetch --no-history angle
+          gn gen out/Release --args='is_component_build=false target_cpu=x86 is_debug=false angle_enable_d3d9=true angle_enable_d3d11=false angle_enable_gl=false angle_enable_metal=false angle_enable_null=false angle_enable_vulkan=false angle_enable_essl=true angle_enable_glsl=true'
+          autoninja -C out/Release
