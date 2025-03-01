@@ -1,0 +1,25 @@
+on:
+  push:
+jobs:
+  build:
+    runs-on: windows-2019
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v4
+
+      - name: setup depot_tools
+        run: git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
+
+      - name: fetch angle
+        run: |
+          export PATH=${PATH}:$(pwd)/depot_tools
+          export DEPOT_TOOLS_WIN_TOOLCHAIN=0
+
+          mkdir angle
+          pushd $_
+            fetch angle
+            gn gen out/Debug
+          popd
