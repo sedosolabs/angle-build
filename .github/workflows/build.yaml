@@ -13,22 +13,8 @@ jobs:
       - name: fetch angle
         run: |
           $env:Path += ';' + $pwd + '/depot_tools'
-          echo $env:Path
-          gn
-      #     export PATH=${PATH}:$(pwd)/depot_tools
-      #     export DEPOT_TOOLS_WIN_TOOLCHAIN=0
-      #
-      #     mkdir angle
-      #     pushd $_
-      #       fetch angle
-      #     popd
-      #
-      # - name: fetch angle
-      #   run: |
-      #     export PATH=${PATH}:$(pwd)/depot_tools
-      #     export DEPOT_TOOLS_WIN_TOOLCHAIN=0
-      #
-      #     pushd angle
-      #       gn gen out/Debug
-      #       gn args out/Debug
-      #     popd
+          $env:DEPOT_TOOLS_WIN_TOOLCHAIN = 0
+
+          mkdir angle
+          cd angle
+          fetch --no-history angle
