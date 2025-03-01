@@ -12,7 +12,7 @@ jobs:
 
       - name: fetch angle
         run: |
-          $env:Path += ';' + $pwd/depot_tools
+          $env:Path += ';' + $pwd + '/depot_tools'
           echo $env:Path
           gn
       #     export PATH=${PATH}:$(pwd)/depot_tools
