@@ -9,7 +9,7 @@ jobs:
 
       - name: setup depot_tools
         run: |
-          git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
+          git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git --depth 1
           git config --global user.name "John Doe"
           git config --global user.email "jdoe@email.com"
           git config --global core.autocrlf false
